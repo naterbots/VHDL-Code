@@ -11,13 +11,13 @@ ARCHITECTURE Behavior OF ClockEnabledDFlipFlop IS
 		PORT(z,i0,i1 : IN STD_LOGIC;
 			s : OUT STD_LOGIC);
 		END COMPONENT;
-	COMPONENT FlipFlop IS
+	COMPONENT dFlipFlop IS
 		PORT (D, reset, clk : IN STD_LOGIC;
 			Q : OUT STD_LOGIC);
 		END COMPONENT;
 	SIGNAL sD, sQ : STD_LOGIC;
 	BEGIN
 		muxA: mux PORT MAP(CE,sQ,din,sD);
-		dFF: FlipFlop PORT MAP(sD,RESET,CLK,sQ);
+		dFF: dFlipFlop PORT MAP(sD,RESET,CLK,sQ);
 		Q <= sQ;
 END Behavior;

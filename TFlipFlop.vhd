@@ -6,13 +6,13 @@ ENTITY TFlipFlop IS
 END TFlipFlop;
 
 ARCHITECTURE Behavior OF TFlipFlop IS
-	COMPONENT FlipFlop IS
+	COMPONENT dFlipFlop IS
 		PORT (D, reset, clk : IN STD_LOGIC;
 			Q : OUT STD_LOGIC);
 		END COMPONENT;
 	SIGNAL sD, sQ : STD_LOGIC;
 	BEGIN
 		sD <= T XOR sQ;
-		dFF: FlipFlop PORT MAP(sD,RESET,CLK,sQ);
+		dFF: dFlipFlop PORT MAP(sD,RESET,CLK,sQ);
 		Q <= sQ;
 END Behavior;
